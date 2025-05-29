@@ -20,7 +20,7 @@ class GamesController extends Controller
     {
         //Step 3. Your code here
         $games = $this -> game_list;
-        return view('games.list', compact('games'));
+        return view('games.index', ["games" => $games]);
     }
 
     /**
@@ -44,7 +44,7 @@ class GamesController extends Controller
             return $game['id'] == $id;
         });
         return response()->json([
-            'message' => 'Record Successfull Deleted.',
+            'message' => 'Record Successfully Deleted.',
             'content' => $results
         ], 200);
     }
